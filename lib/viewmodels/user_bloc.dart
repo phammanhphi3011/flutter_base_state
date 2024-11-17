@@ -7,9 +7,9 @@ import 'package:flutter_bloc/models/user_model.dart';
 import 'package:flutter_bloc/repositories/user_repository.dart';
 import 'package:flutter_bloc/services/api_service.dart';
 
-class FetchProductEvent extends BaseEvent {}
+class FetchUserEvent extends BaseEvent {}
 
-class UserViewModel extends BaseBloc<FetchProductEvent, BaseState> {
+class UserViewModel extends BaseBloc<FetchUserEvent, BaseState> {
   final ApiService apiService;
   UserViewModel({required this.apiService});
   final UserRepository _userRepository = UserRepository(apiService: apiServer);
@@ -17,7 +17,7 @@ class UserViewModel extends BaseBloc<FetchProductEvent, BaseState> {
   //Method get users
 
   @override
-  Future<BaseState> mapEventToState(FetchProductEvent event) async {
+  Future<BaseState> mapEventToState(FetchUserEvent event) async {
     emit(LoadingState()); //Loading
     try {
       final users = await _userRepository.fetchUsers();

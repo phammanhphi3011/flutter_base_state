@@ -20,7 +20,7 @@ class _UserListViewState extends State<UserListView> {
     _userViewModel = UserViewModel(
       apiService: ApiService(baseUrl: 'http://jsonplaceholder.typicode.com'),
     );
-    _userViewModel.event.add(FetchProductEvent());
+    _userViewModel.event.add(FetchUserEvent());
     super.initState();
   }
 
